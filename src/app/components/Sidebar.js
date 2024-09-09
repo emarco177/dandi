@@ -14,7 +14,7 @@ const Sidebar = () => {
     <>
       <div className={`fixed top-0 left-0 h-screen bg-white shadow-lg transition-all duration-300 ${isOpen ? 'w-64' : 'w-0'} overflow-hidden`}>
         <div className="p-6">
-          <h1 className="text-2xl font-bold">Dani AI</h1>
+          <h1 className="text-2xl font-bold">Dandi AI</h1>
         </div>
         <nav className="mt-6">
           <Link href="/dashboards" className={`flex items-center px-6 py-3 ${isActive('/dashboards') ? 'bg-purple-100 text-purple-600' : 'text-gray-600 hover:bg-gray-100'}`}>

@@ -131,7 +131,7 @@ export default function Dashboard() {
                 Manage Plan
               </button>
             </div>
-            <h2 className="text-3xl font-bold mb-4">Researcher</h2>
+            <h2 className="text-3xl font-bold mb-4">Dandi API</h2>
             <div>
               <span className="text-sm font-medium">API Limit</span>
               <div className="w-full bg-white bg-opacity-20 rounded-full h-2 mt-2">
