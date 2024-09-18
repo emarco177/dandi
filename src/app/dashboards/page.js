@@ -77,10 +77,10 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex">
-      <Sidebar />
-      <div className="flex-1 ml-64">
-        <div className="p-8 max-w-6xl mx-auto">
+    <div className="flex flex-col md:flex-row min-h-screen">
+      <Sidebar className="w-full md:w-64 md:fixed md:h-screen" />
+      <div className="w-full md:ml-64 p-4 md:p-8 flex-grow">
+        <div className="max-w-6xl mx-auto space-y-6">
           {notification && (
             <Notification
               message={notification.message}
@@ -89,17 +89,17 @@ export default function Dashboard() {
             />
           )}
           
-          <h1 className="text-3xl font-bold mb-6">Overview</h1>
+          <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
           
           {/* Current Plan */}
-          <div className="mb-8 p-6 rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white">
-            <div className="flex justify-between items-center mb-4">
-              <span className="text-sm font-medium">CURRENT PLAN</span>
-              <button className="bg-white bg-opacity-20 text-white text-sm px-3 py-1 rounded">
+          <div className="p-4 md:p-6 rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
+              <span className="text-sm font-medium mb-2 sm:mb-0">CURRENT PLAN</span>
+              <button className="bg-white bg-opacity-20 text-white text-sm px-3 py-1 rounded hover:bg-opacity-30 transition-colors">
                 Manage Plan
               </button>
             </div>
-            <h2 className="text-3xl font-bold mb-4">Dandi API</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Dandi API</h2>
             <div>
               <span className="text-sm font-medium">API Limit</span>
               <div className="w-full bg-white bg-opacity-20 rounded-full h-2 mt-2">
@@ -111,11 +111,11 @@ export default function Dashboard() {
 
           {/* API Keys */}
           <div>
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold">API Keys</h2>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
+              <h2 className="text-xl font-semibold mb-2 sm:mb-0">API Keys</h2>
               <button
                 onClick={() => setIsCreateModalOpen(true)}
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors w-full sm:w-auto"
               >
                 + Create New Key
               </button>
@@ -123,13 +123,15 @@ export default function Dashboard() {
             <p className="text-sm text-gray-600 mb-4">
               The key is used to authenticate your requests to the Research API. To learn more, see the documentation page.
             </p>
-            <ApiKeysTable 
-              apiKeys={apiKeys}
-              onEdit={setEditingKey}
-              onDelete={handleDeleteApiKey}
-              onCopy={copyToClipboard}
-              showNotification={showNotification}
-            />
+            <div className="overflow-x-auto bg-white shadow rounded-lg">
+              <ApiKeysTable 
+                apiKeys={apiKeys}
+                onEdit={setEditingKey}
+                onDelete={handleDeleteApiKey}
+                onCopy={copyToClipboard}
+                showNotification={showNotification}
+              />
+            </div>
           </div>
 
           <CreateApiKeyModal
