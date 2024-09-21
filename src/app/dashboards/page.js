@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { fetchApiKeys, createApiKey, updateApiKey, deleteApiKey } from '../lib/apiKeyOperations';
+import { useSession } from "next-auth/react";
 import Notification from '../components/Notification';
 import Sidebar from '../components/Sidebar';
 import ApiKeysTable from '../components/ApiKeysTable';
@@ -13,14 +13,23 @@ export default function Dashboard() {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [editingKey, setEditingKey] = useState(null);
   const [notification, setNotification] = useState(null);
+  const { data: session } = useSession();
 
   useEffect(() => {
-    fetchApiKeysData();
-  }, []);
+    if (session) {
+      fetchApiKeysData();
+    }
+  }, [session]);
 
   const fetchApiKeysData = async () => {
     try {
-      const data = await fetchApiKeys();
+      const response = await fetch('/api/api-keys', {
+        headers: {
+          'Authorization': `Bearer ${session.accessToken}`
+        }
+      });
+      if (!response.ok) throw new Error('Failed to fetch API keys');
+      const data = await response.json();
       setApiKeys(data);
     } catch (error) {
       showNotification('Failed to fetch API keys', 'error');
@@ -33,7 +42,16 @@ export default function Dashboard() {
 
   const handleCreateApiKey = async (name, limit) => {
     try {
-      const newKey = await createApiKey(name, limit);
+      const response = await fetch('/api/api-keys', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.accessToken}`
+        },
+        body: JSON.stringify({ name, limit })
+      });
+      if (!response.ok) throw new Error('Failed to create API key');
+      const newKey = await response.json();
       setApiKeys([...apiKeys, newKey]);
       setIsCreateModalOpen(false);
       showNotification('API key created successfully');
@@ -44,7 +62,16 @@ export default function Dashboard() {
 
   const handleUpdateApiKey = async (updatedKey) => {
     try {
-      const updated = await updateApiKey(updatedKey.id, updatedKey.name);
+      const response = await fetch(`/api/api-keys/${updatedKey.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.accessToken}`
+        },
+        body: JSON.stringify({ name: updatedKey.name })
+      });
+      if (!response.ok) throw new Error('Failed to update API key');
+      const updated = await response.json();
       const updatedKeys = apiKeys.map(key => 
         key.id === updated.id ? updated : key
       );
@@ -58,10 +85,16 @@ export default function Dashboard() {
 
   const handleDeleteApiKey = async (id) => {
     try {
-      await deleteApiKey(id);
+      const response = await fetch(`/api/api-keys/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${session.accessToken}`
+        }
+      });
+      if (!response.ok) throw new Error('Failed to delete API key');
       const updatedKeys = apiKeys.filter(key => key.id !== id);
       setApiKeys(updatedKeys);
-      showNotification('API key deleted successfully','error');
+      showNotification('API key deleted successfully');
     } catch (error) {
       showNotification('Failed to delete API key', 'error');
     }
