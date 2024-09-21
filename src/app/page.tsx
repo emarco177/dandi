@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { Check, Github, Star, GitPullRequest, Tags } from "lucide-react"
 import Link from "next/link"
 import SignInButton from "./components/SignInButton"
+import { ApiDemo } from "./components/ApiDemo"
 
 export default function LandingPage() {
   return (
@@ -51,6 +53,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+
         <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-800">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">Key Features</h2>
@@ -85,6 +88,12 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">Try It Out</h2>
+            <ApiDemo />
+          </div>
+        </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">Pricing Plans</h2>
@@ -116,7 +125,8 @@ export default function LandingPage() {
                   <Button className="w-full">Get Started</Button>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="relative">
+              <Badge className="absolute top-4 right-4" variant="secondary">Coming Soon</Badge>
                 <CardHeader>
                   <CardTitle>Pro</CardTitle>
                   <CardDescription>For professional developers</CardDescription>
@@ -140,10 +150,11 @@ export default function LandingPage() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full">Subscribe</Button>
+                <Button className="w-full" disabled>Coming Soon</Button>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="relative">
+              <Badge className="absolute top-4 right-4" variant="secondary">Coming Soon</Badge>
                 <CardHeader>
                   <CardTitle>Enterprise</CardTitle>
                   <CardDescription>For large teams and organizations</CardDescription>
@@ -167,7 +178,7 @@ export default function LandingPage() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full">Contact Sales</Button>
+                <Button className="w-full" disabled>Coming Soon</Button>
                 </CardFooter>
               </Card>
             </div>
@@ -175,7 +186,7 @@ export default function LandingPage() {
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
-        <p className="text-xs text-gray-500 dark:text-gray-400">© 2023 Dandi Github Analyzer. All rights reserved.</p>
+        <p className="text-xs text-gray-500 dark:text-gray-400">© 2024 Dandi Github Analyzer. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link className="text-xs hover:underline underline-offset-4" href="#">
             Terms of Service
