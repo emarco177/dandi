@@ -113,7 +113,7 @@ export default function LandingPage() {
                     </li>
                     <li className="flex items-center">
                       <Check className="w-5 h-5 mr-2 text-green-500" />
-                      5 repositories
+                      Limited to 200 requests
                     </li>
                     <li className="flex items-center">
                       <Check className="w-5 h-5 mr-2 text-green-500" />
