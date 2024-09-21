@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { summarizeReadme } from './chain';
 import { validateApiKey, incrementApiKeyUsage } from '../../lib/apiKeyUtils';
+import { getRepoInfo } from '../../lib/githubUtils';
 
 export async function POST(req) {
   const { githubUrl } = await req.json();
@@ -23,32 +24,26 @@ export async function POST(req) {
       return NextResponse.json({ message }, { status: 429 });
     }
 
-    const readmeContent = await getReadmeContent(githubUrl);
-    const summary = await summarizeReadme(readmeContent);
+    // Fetch repo info first
+    const repoInfo = await getRepoInfo(githubUrl);
 
-    return NextResponse.json(summary, { status: 200 });
+    // Then run summarization in parallel with other tasks
+    const [summary] = await Promise.all([
+      summarizeReadme(repoInfo.readmeContent),
+      // Add any other parallel tasks here if needed
+    ]);
+
+    return NextResponse.json({
+      ...summary,
+      stars: repoInfo.stars,
+      latestVersion: repoInfo.latestVersion,
+      websiteUrl: repoInfo.websiteUrl,
+      licenseType: repoInfo.licenseType,
+    }, { status: 200 });
   } catch (error) {
     console.error('Error in GitHub summarizer:', error);
     return NextResponse.json({ message: 'Error processing request' }, { status: 500 });
   }
-}
-
-async function getReadmeContent(githubUrl) {
-  const owner = githubUrl.split('/')[3];
-  const repo = githubUrl.split('/')[4];
-  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/readme`;
-
-  const response = await fetch(apiUrl, {
-    headers: {
-      'Accept': 'application/vnd.github.v3.raw',
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`Failed to fetch README: ${response.statusText}`);
-  }
-
-  return await response.text();
 }
 
 
