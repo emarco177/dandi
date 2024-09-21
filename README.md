@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dandi API - Boilerplate for AI Micro SaaS Applications
 
-## Getting Started
+**🤯 🤯 This repo was buikt with ENGLISH as the programming language with Cursor IDE and v0.🤯**
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![Logo](https://github.com/emarco177/dandi/blob/main/public/demo.gif)
+
+Dandi API is a comprehensive boilerplate repository for building AI-powered micro SaaS applications. It provides a solid foundation with essential components and functionalities needed to run an end-to-end micro SaaS application.
+
+The service itself offers powerful insights, summaries, and analytics for open source GitHub repositories.
+
+**🌐 Live Application: [https://www.dandi.cloud/](https://www.dandi.cloud/)**
+
+
+
+## 🚀 Key Features
+
+- **Complete Micro SaaS Structure**: Implements all necessary components for a fully functional AI micro SaaS application.
+- **API Key Management**: Built-in system for handling API keys, UI heavily inspired by [Tavily](https://www.tavily.com/).
+- **Rate Limiting**: Integrated rate limiting for API protection.
+- **SSO Login**: Implemented Single Sign-On functionality.
+- **AI Integration**: Leverages LangChain JS for AI capabilities.
+
+## 🛠️ Built with Cursor IDE and v0
+
+This entire project was developed using [Cursor IDE](https://cursor.com/), primarily through prompting with Cursor Composer and [v0](https://v0.dev/) . As a developer without frontend or full-stack experience, this project demonstrates the power of AI-assisted development.
+
+**ENGLISH IS THE NEW PROGRAMMING LANGUAGE.**
+[![udemy](https://img.shields.io/badge/Cursor%20Udemy%20Course-%20Coupon%20%2412.99-brightgreen)](https://www.udemy.com/course/cursor-ai-ide/?couponCode=CURSOR1231231565434)
+
+## 🧰 Tech Stack (TBH, Cursor did it all for me)
+
+- **Frontend**: React, Next.js 13 (App Router), Tailwind CSS
+- **Backend**: Node.js, Next.js API Routes
+- **Database**: Supabase (PostgreSQL)
+- **Authentication**: NextAuth.js
+- **UI Components**: Shadcn UI, Radix UI
+- **API**: RESTful API with rate limiting and API key authentication
+- **AI**: LangChain JS 🦜🔗
+- **Deployment**: Vercel 
+
+
+
+## 🚀 Getting Started
+
+To run this project locally, follow these steps:
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/dandi-api.git
+   cd dandi-api
+   ```
+
+2. Install dependencies:
+   ```
+   yarn install
+   ```
+
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory and add the necessary environment variables (refer to the Environment Variables section below).
+
+4. Run the development server:
+   ```
+   yarn dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## 🔐 Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```
+DB_URL=
+DB_NAME=
+DB_USER=
+DB_PASSWORD=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+NEXTAUTH_SECRET=
+NEXTAUTH_URL=
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Note: Keep your `.env.local` file secure and never commit it to version control.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🏗️ Build and Production
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To build the project for production:
 
-## Learn More
+```
+yarn build
+```
 
-To learn more about Next.js, take a look at the following resources:
+To run the production build locally:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+yarn start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 📚 See How to Build This Project with Cursor and v0
 
-## Deploy on Vercel
+For a detailed video tutorial on how to build this micro SaaS application from scratch with cursor and v0, check out my Udemy course:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[Cursor AI: Full Stack development with AI powered CoPilot](https://www.udemy.com/course/cursor-ai-ide/?couponCode=CURSOR1231231565434)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+🚀 From Backend to Full-Stack with Cursor IDE and v0 Magic!
+
+In this course, I will show you how to build this entire app rapidly using AI:
+- 🖥️ Most of Cursor IDE & v0 by Vercel
+- 🧠 AI-Driven Development Workflows
+- 🛠️ Building a Complete AI Micro SaaS (LangChain JS)
+- 💡 Prompting Techniques for Coding and working with AI 
+- 💡 Cursor Copilot best practices (at least for me)
+
+
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://www.udemy.com/course/langchain/?referralCode=D981B8213164A3EA91AC)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eden-marco/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://www.udemy.com/user/eden-marco/)
