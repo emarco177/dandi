@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '../../lib/supabaseClient';
 import { summarizeReadme } from './chain';
+import { validateApiKey, incrementApiKeyUsage } from '../../lib/apiKeyUtils';
 
 export async function POST(req) {
   const { githubUrl } = await req.json();
@@ -11,25 +11,20 @@ export async function POST(req) {
   }
 
   try {
-    const { data, error } = await supabase
-      .from('api_keys')
-      .select('id')
-      .eq('value', apiKey)
-      .maybeSingle();
+    const apiKeyData = await validateApiKey(apiKey);
 
-    if (error && error.code !== 'PGRST116') {
-      throw error;
-    }
-
-    if (!data) {
+    if (!apiKeyData) {
       return NextResponse.json({ message: 'Invalid API key' }, { status: 401 });
     }
 
-    const readmeContent = await getReadmeContent(githubUrl);
-    console.log(readmeContent);
+    const { success, message } = await incrementApiKeyUsage(apiKeyData);
 
+    if (!success) {
+      return NextResponse.json({ message }, { status: 429 });
+    }
+
+    const readmeContent = await getReadmeContent(githubUrl);
     const summary = await summarizeReadme(readmeContent);
-    console.log(summary);
 
     return NextResponse.json(summary, { status: 200 });
   } catch (error) {

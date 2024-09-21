@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   const { data, error } = await supabase
     .from('api_keys')
     .insert([
-      { name, value: newKeyValue, usage: 0, limit, user_id: user.id }
+      { name, value: newKeyValue, usage: 0, user_id: user.id }
     ])
     .select();
 
