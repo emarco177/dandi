@@ -19,7 +19,29 @@ export default function CreateApiKeyModal({ isOpen, onClose, onCreate }) {
         <h3 className="text-lg font-semibold mb-4">Create a new API key</h3>
         <p className="text-sm text-gray-600 mb-4">Enter a name and limit for the new API key.</p>
         <form onSubmit={handleSubmit}>
-          {/* Form fields */}
+          <div className="mb-4">
+            <label htmlFor="keyName" className="block text-sm font-medium text-gray-700">Key Name</label>
+            <input
+              type="text"
+              id="keyName"
+              value={newKeyName}
+              onChange={(e) => setNewKeyName(e.target.value)}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="keyLimit" className="block text-sm font-medium text-gray-700">Key Limit</label>
+            <input
+              type="number"
+              id="keyLimit"
+              value={newKeyLimit}
+              onChange={(e) => setNewKeyLimit(parseInt(e.target.value, 10))}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+              required
+              min="1"
+            />
+          </div>
           <div className="flex justify-end">
             <button
               type="button"
