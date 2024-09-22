@@ -7,6 +7,7 @@ import Sidebar from '../components/Sidebar';
 import ApiKeysTable from '../components/ApiKeysTable';
 import CreateApiKeyModal from '../components/CreateApiKeyModal';
 import EditApiKeyModal from '../components/EditApiKeyModal';
+import Link from 'next/link';
 
 export default function Dashboard() {
   const [apiKeys, setApiKeys] = useState([]);
