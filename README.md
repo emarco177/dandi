@@ -26,7 +26,7 @@ The service itself offers powerful insights, summaries, and analytics for open s
 This entire project was developed using [Cursor IDE](https://cursor.com/), primarily through prompting with Cursor Composer and [v0](https://v0.dev/) . As a developer without frontend or full-stack experience, this project demonstrates the power of AI-assisted development.
 
 **ENGLISH IS THE NEW PROGRAMMING LANGUAGE.**
-[![udemy](https://img.shields.io/badge/Cursor%20Udemy%20Course-%20Coupon%20%2412.99-brightgreen)](https://www.udemy.com/course/cursor-ai-ide/?couponCode=CURSOR1231231565434)
+[![udemy](https://img.shields.io/badge/Cursor%20Udemy%20Course-%20Coupon%20%2412.99-brightgreen)](https://www.udemy.com/course/cursor-ai-ide/?couponCode=BLACK-FRIDAY-2024)
 
 ## 🧰 Tech Stack (TBH, Cursor did it all for me)
 
