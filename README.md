@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/05442d63-5662-4679-b7b3-6f407dcd00a1)# 🌻 Dandi API - Boilerplate for AI Micro SaaS Applications
+# 🌻 Dandi API - Boilerplate for AI Micro SaaS Applications
 
 **🤯 🤯 This repo was buikt with ENGLISH as the programming language with Cursor IDE and v0.🤯**
 
