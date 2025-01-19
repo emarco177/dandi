@@ -103,7 +103,7 @@ yarn start
 
 For a detailed video tutorial on how to build this micro SaaS application from scratch with cursor and v0, check out my Udemy course:
 
-[Cursor AI: Full Stack development with AI powered CoPilot](https://www.udemy.com/course/cursor-ai-ide/?couponCode=BLACK-FRIDAY-2024)
+[Cursor AI: Full Stack development with AI powered CoPilot](https://www.udemy.com/course/cursor-ai-ide/?couponCode=JAN-2025)
 
 🚀 From Backend to Full-Stack with Cursor IDE and v0 Magic!
 
