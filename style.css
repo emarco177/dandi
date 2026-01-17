@@ -1,0 +1,105 @@
+/* Base page styles */
+body { 
+    font-family: 'Assistant', sans-serif; 
+    padding: 20px; 
+    text-align: center; 
+    background: #fdfbf7; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Card container */
+.invite-card { 
+    background: white; 
+    padding: 50px 40px; 
+    max-width: 500px; 
+    width: 100%;
+    margin: 0 auto; 
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* subtle shadow */
+    border-radius: 8px;
+    position: relative;
+}
+
+/* Decorative inner frame */
+.invite-card::before {
+    content: "";
+    position: absolute;
+    top: 15px; left: 15px; right: 15px; bottom: 15px;
+    border: 1px solid #d4af37; /* gold */
+    pointer-events: none;
+}
+
+/* Top text */
+.sub-text { 
+    color: #888; 
+    margin-bottom: 20px; 
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Names - script font */
+.names { 
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem; 
+    color: #333;
+    margin: 20px 0;
+    line-height: 1.2;
+}
+
+/* Divider line */
+.divider { 
+    height: 1px; 
+    background: linear-gradient(to right, transparent, #d4af37, transparent); 
+    margin: 30px auto; 
+    width: 60%; 
+}
+
+/* Event details */
+.details-row { 
+    margin: 15px 0; 
+    font-size: 1.1rem; 
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* RSVP button */
+.rsvp-btn { 
+    padding: 12px 40px; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    margin-top: 30px;
+    background: #d4af37; /* gold */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    transition: transform 0.2s, background 0.2s;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 600;
+}
+
+.rsvp-btn:hover {
+    background: #b59020;
+    transform: translateY(-2px);
+}
+
+/* Confirmation message */
+.status { 
+    display: none; 
+    margin-top: 20px; 
+    color: #2e7d32; 
+    font-weight: bold; 
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
